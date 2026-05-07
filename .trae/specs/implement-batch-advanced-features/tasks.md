@@ -1,0 +1,44 @@
+# Tasks
+
+- [x] Task 1: 实现批量处理模块（src/batch_processor.py）
+  - [x] SubTask 1.1: 实现目录扫描和文件列表收集
+  - [x] SubTask 1.2: 实现多文件循环处理逻辑
+  - [x] SubTask 1.3: 实现处理进度报告输出
+  - [x] SubTask 1.4: 实现单文件失败容错和继续处理
+  - [x] SubTask 1.5: 实现批量处理汇总报告
+- [x] Task 2: 实现风险排查模块（src/risk_detector.py）
+  - [x] SubTask 2.1: 实现不平衡报价风险检测（基尼系数、Z-Score、IQR）
+  - [x] SubTask 2.2: 实现风险等级分类（低/中/高风险）
+  - [x] SubTask 2.3: 实现风险报告输出（高风险项目列表、风险等级分布、建议调整方向）
+- [x] Task 3: 实现多版本比选模块（src/scheme_comparator.py）
+  - [x] SubTask 3.1: 实现多方案关键指标对比表格生成
+  - [x] SubTask 3.2: 实现综合评分算法（各检验指标加权）
+  - [x] SubTask 3.3: 实现最优方案推荐和推荐理由生成
+  - [x] SubTask 3.4: 实现对比报告输出
+- [x] Task 4: 实现 openpyxl 加速模块（src/batch_processor.py）
+  - [x] SubTask 4.1: 实现数据行数自动检测
+  - [x] SubTask 4.2: 实现加速条件判断（无公式、无格式、无VBA）
+  - [x] SubTask 4.3: 实现 openpyxl + pandas 批量读取
+  - [x] SubTask 4.4: 实现 openpyxl 批量写入
+  - [x] SubTask 4.5: 实现写入后 xlwings 公式重算
+  - [x] SubTask 4.6: 实现不满足条件时回退到 xlwings
+- [x] Task 5: 集成到主流程（src/main.py）
+  - [x] SubTask 5.1: 新增批量处理命令行入口
+  - [x] SubTask 5.2: 新增风险排查命令行入口
+  - [x] SubTask 5.3: 新增多版本比选命令行入口
+  - [x] SubTask 5.4: 新增 openpyxl 加速开关配置
+- [ ] Task 6: 编写单元测试
+  - [ ] SubTask 6.1: 批量处理多文件测试
+  - [ ] SubTask 6.2: 单文件失败容错测试
+  - [ ] SubTask 6.3: 风险等级分类正确性测试
+  - [ ] SubTask 6.4: 综合评分和推荐逻辑测试
+  - [ ] SubTask 6.5: openpyxl 加速条件判断测试
+  - [ ] SubTask 6.6: xlwings 回退逻辑测试
+
+# Task Dependencies
+- [Task 1] depends on [P2 全部完成]
+- [Task 2] depends on [P2 全部完成]
+- [Task 3] depends on [P2 全部完成]
+- [Task 4] depends on [P2 全部完成]
+- [Task 5] depends on [Task 1, Task 2, Task 3, Task 4]
+- [Task 6] depends on [Task 5]

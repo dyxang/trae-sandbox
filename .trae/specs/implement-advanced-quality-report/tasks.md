@@ -1,0 +1,42 @@
+# Tasks
+
+- [x] Task 1: 实现不平衡报价检测（src/data_processor.py）
+  - [x] SubTask 1.1: 实现基尼系数计算 G = ΣΣ|x_i - x_j| / (2n²μ)
+  - [x] SubTask 1.2: 实现 Z-Score 异常值检测 Z_i = (x_i - μ) / σ
+  - [x] SubTask 1.3: 实现 IQR 异常值检测
+- [x] Task 2: 实现同方向浮动检测（src/data_processor.py）
+  - [x] SubTask 2.1: 实现涨跌比例统计
+  - [x] SubTask 2.2: 实现二项检验 p 值计算
+- [x] Task 3: 实现相关性检测（src/data_processor.py）
+  - [x] SubTask 3.1: 实现 Spearman 秩相关系数计算
+  - [x] SubTask 3.2: 实现 K-S 检验（scipy.stats.kstest）
+- [x] Task 4: 实现检验报告生成（src/report_generator.py）
+  - [x] SubTask 4.1: 实现报告模板结构（基本信息、数量统计、总价变化、涨跌分布、浮动范围、相关性、不平衡检测、结论）
+  - [x] SubTask 4.2: 实现结论判定逻辑（✓通过/⚠警告/✗失败）
+  - [x] SubTask 4.3: 实现建议生成逻辑
+  - [x] SubTask 4.4: 实现报告输出为文本文件
+- [x] Task 5: 实现 YAML 配置系统（src/config.py）
+  - [x] SubTask 5.1: 实现 config.yaml 解析
+  - [x] SubTask 5.2: 实现参数校验和默认值填充
+  - [x] SubTask 5.3: 实现配置参数传递到各模块
+- [x] Task 6: 实现多方案生成（src/main.py）
+  - [x] SubTask 6.1: 实现多随机种子输入支持
+  - [x] SubTask 6.2: 实现自动随机种子生成
+  - [x] SubTask 6.3: 实现多方案循环生成和独立输出
+- [ ] Task 7: 编写单元测试
+  - [ ] SubTask 7.1: 基尼系数计算正确性测试
+  - [ ] SubTask 7.2: Z-Score 异常值检测测试
+  - [ ] SubTask 7.3: 二项检验 p 值计算测试
+  - [ ] SubTask 7.4: Spearman 和 K-S 检验测试
+  - [ ] SubTask 7.5: 检验报告内容完整性测试
+  - [ ] SubTask 7.6: YAML 配置加载和默认值测试
+  - [ ] SubTask 7.7: 多方案生成测试
+
+# Task Dependencies
+- [Task 1] depends on [P1 全部完成]
+- [Task 2] depends on [P1 全部完成]
+- [Task 3] depends on [P1 全部完成]
+- [Task 4] depends on [Task 1, Task 2, Task 3]
+- [Task 5] depends on [P1 全部完成]
+- [Task 6] depends on [Task 4, Task 5]
+- [Task 7] depends on [Task 6]

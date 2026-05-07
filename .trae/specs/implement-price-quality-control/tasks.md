@@ -1,0 +1,41 @@
+# Tasks
+
+- [x] Task 1: 实现总价校准算法（src/data_processor.py）
+  - [x] SubTask 1.1: 实现当前总价与目标总价差额计算
+  - [x] SubTask 1.2: 实现分层优先策略的系数调整（小项→中项→大项）
+  - [x] SubTask 1.3: 实现可调整空间计算和加权分摊
+  - [x] SubTask 1.4: 实现迭代收敛判断（误差 ≤0.01元）
+  - [x] SubTask 1.5: 实现校准失败时的容错处理（放宽至0.1元 + 提示调整约束）
+  - [x] SubTask 1.6: 实现不指定下浮比例时跳过校准的逻辑
+- [x] Task 2: 实现涨跌混合控制（src/data_processor.py）
+  - [x] SubTask 2.1: 实现上涨项占比计算
+  - [x] SubTask 2.2: 实现涨跌比例失衡时的自动重分配逻辑
+  - [x] SubTask 2.3: 实现严重失衡时的警告提示
+- [x] Task 3: 实现相关性控制（src/data_processor.py）
+  - [x] SubTask 3.1: 实现 Pearson 相关系数计算
+  - [x] SubTask 3.2: 实现相关系数过强时的扰动增强逻辑
+  - [x] SubTask 3.3: 实现相关系数过弱时的扰动减弱逻辑
+- [x] Task 4: 实现基础质量检验（src/data_processor.py）
+  - [x] SubTask 4.1: 实现浮动范围检测（大项≤1%、小项≥1%）
+  - [x] SubTask 4.2: 实现分层合规性检测（Spearman负相关）
+  - [x] SubTask 4.3: 实现极值报告
+- [x] Task 5: 修改主流程入口（src/main.py）
+  - [x] SubTask 5.1: 新增目标下浮比例配置参数
+  - [x] SubTask 5.2: 在核心引擎流程中插入总价校准步骤
+  - [x] SubTask 5.3: 在核心引擎流程中插入涨跌混合控制步骤
+  - [x] SubTask 5.4: 在核心引擎流程中插入相关性控制步骤
+  - [x] SubTask 5.5: 在结果写入后执行基础质量检验
+- [ ] Task 6: 编写单元测试
+  - [ ] SubTask 6.1: 总价校准精度测试（误差≤0.01元）
+  - [ ] SubTask 6.2: 校准后分层约束合规测试
+  - [ ] SubTask 6.3: 涨跌比例范围测试
+  - [ ] SubTask 6.4: Pearson相关系数范围测试
+  - [ ] SubTask 6.5: 基础质量检验逻辑测试
+
+# Task Dependencies
+- [Task 1] depends on [P0 全部完成]
+- [Task 2] depends on [P0 全部完成]
+- [Task 3] depends on [P0 全部完成]
+- [Task 4] depends on [Task 1, Task 2, Task 3]
+- [Task 5] depends on [Task 1, Task 2, Task 3, Task 4]
+- [Task 6] depends on [Task 5]

@@ -1,0 +1,6 @@
+xlwings>=0.33
+pandas>=2.0
+numpy
+scipy
+pyyaml
+openpyxl

@@ -1,0 +1,43 @@
+# Tasks
+
+- [x] Task 1: 搭建项目基础结构
+  - [x] SubTask 1.1: 创建项目目录结构（src/, tests/, templates/, output/）
+  - [x] SubTask 1.2: 创建 requirements.txt（xlwings>=0.33, pandas>=2.0, numpy, scipy）
+  - [x] SubTask 1.3: 创建 src/__init__.py 和 src/main.py 入口文件
+- [x] Task 2: 实现 Excel 数据解析模块（src/excel_handler.py）
+  - [x] SubTask 2.1: 实现工作表结构识别（自动检测项目编码、项目名称、合价列位置）
+  - [x] SubTask 2.2: 实现数据起始行和表头行检测
+  - [x] SubTask 2.3: 实现合价列缺失时的 ERR_INVALID_INPUT 错误处理
+- [x] Task 3: 实现锁定项识别模块（src/data_processor.py）
+  - [x] SubTask 3.1: 实现"0000"开头编码的锁定规则
+  - [x] SubTask 3.2: 实现关键字匹配锁定规则（税金、规费、安全文明、暂列金额）
+  - [x] SubTask 3.3: 实现层级分类码识别（长度<8的字母数字组合）
+  - [x] SubTask 3.4: 实现汇总行识别（合计、汇总、小计、总计）
+  - [x] SubTask 3.5: 实现零值行识别（工程量或单价为0/空值）
+  - [x] SubTask 3.6: 实现可调项为0时的 ERR_NO_ADJUSTABLE_ITEMS 错误处理
+- [x] Task 4: 实现分层分组模块（src/data_processor.py）
+  - [x] SubTask 4.1: 实现按合价大小分为大/中/小三组的逻辑
+  - [x] SubTask 4.2: 实现组内随机分配上涨/下跌方向
+- [x] Task 5: 实现随机浮动生成模块（src/data_processor.py）
+  - [x] SubTask 5.1: 实现大项浮动系数生成（U(0.5%,1%) + N(0,0.3%)扰动）
+  - [x] SubTask 5.2: 实现中项浮动系数生成（U(1%,2%) + N(0,0.3%)扰动）
+  - [x] SubTask 5.3: 实现小项浮动系数生成（U(2%,3%) + N(0,0.3%)扰动）
+  - [x] SubTask 5.4: 实现随机种子控制，确保可复现
+- [x] Task 6: 实现结果写入模块（src/excel_handler.py）
+  - [x] SubTask 6.1: 实现在原表终止列右侧追加"调价后合价"列
+  - [x] SubTask 6.2: 实现锁定项原合价复制
+  - [x] SubTask 6.3: 实现可调项调整后价格写入
+  - [x] SubTask 6.4: 实现格式复制（字体、边框、对齐、数值格式）
+- [x] Task 7: 编写单元测试
+  - [x] SubTask 7.1: 锁定项识别规则测试
+  - [x] SubTask 7.2: 分层分组逻辑测试
+  - [x] SubTask 7.3: 随机浮动生成约束测试
+  - [x] SubTask 7.4: 端到端流程测试
+
+# Task Dependencies
+- [Task 2] depends on [Task 1]
+- [Task 3] depends on [Task 2]
+- [Task 4] depends on [Task 3]
+- [Task 5] depends on [Task 4]
+- [Task 6] depends on [Task 5]
+- [Task 7] depends on [Task 6]
