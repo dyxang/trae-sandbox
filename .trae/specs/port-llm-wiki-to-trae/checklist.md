@@ -1,0 +1,20 @@
+- [x] .trae/rules/project_rules.md 存在且包含触发条件、工作流路由表、通用前置检查、SKILL.md 引用、会话启动 wiki 上下文感知指令
+- [x] SKILL.md 已移除所有可选提取器相关内容（依赖检查、外挂状态模型、Chrome 提示、install.sh 引用）
+- [x] SKILL.md 素材提取路由已简化为 URL 类统一走 manual_only 回退
+- [x] source-registry.tsv 只包含 core_builtin 和 manual_only 来源，无 optional_adapter 行
+- [x] source-registry.sh list 能正确输出精简后的来源列表
+- [x] adapter-state.sh check 对 core_builtin 来源返回 available
+- [x] adapter-state.sh check 对 manual_only 来源返回 unsupported
+- [x] adapter-state.sh 不再包含 uv/Chrome/bundled/install_time 检测逻辑
+- [x] runtime-context.sh 不再包含 claude/codex/openclaw/hermes 平台路径解析
+- [x] hook-session-start.sh 已移除
+- [x] deps/ 目录已移除
+- [x] platforms/ 目录已移除
+- [x] install.sh、setup.sh、install.ps1 已移除
+- [x] CLAUDE.md、AGENTS.md、HERMES.md 已移除
+- [x] docs/、tests/ 目录已移除
+- [x] 所有 scripts/ 下的脚本路径解析基于项目根目录（Obsidian vault 根目录）
+- [x] init-wiki.sh 能正确创建知识库目录结构
+- [x] graph 相关脚本在缺少 node/jq 时能降级为仅生成 Mermaid 静态图
+- [x] README.md 已更新为 Trae 版本说明
+- [ ] 整个文件集合可直接复制到 Obsidian vault 根目录后用 Trae 打开即用，无需安装步骤
