@@ -14,8 +14,8 @@
 - 检验报告在界面展示
 
 ## Impact
-- Affected specs: P0 核心引擎（复用 DataProcessor 算法逻辑，但不直接调用 ExcelHandler）
-- Affected code: 新增 src/lite_app.py（Gradio 应用入口），新增 src/lite_processor.py（简化处理器）
+- Affected specs: P0 核心引擎（复用 DataProcessor 算法逻辑，通过 import 引用）
+- Affected code: 新增 Plite/ 目录（独立于 src/），包含 Plite/lite_app.py（Gradio 应用入口）、Plite/lite_processor.py（简化处理器）。不修改 src/ 下任何现有文件
 
 ## ADDED Requirements
 
