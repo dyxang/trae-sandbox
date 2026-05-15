@@ -85,7 +85,7 @@
 
 #### Scenario: 导出 Excel
 - **WHEN** 用户点击"导出 Excel"按钮
-- **THEN** 系统生成 .xlsx 文件供下载，包含调价前后对比数据和检验报告
+- **THEN** 系统生成 .xlsx 文件供下载，仅包含调价前后对比数据（检验报告仅在网页展示，不导出）
 
 ### Requirement: LiteDataProcessor
 系统 SHALL 提供 LiteDataProcessor 类，适配 GUI 场景的数据处理。
