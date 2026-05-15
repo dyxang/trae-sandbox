@@ -1,34 +1,5 @@
-import sys
-import os
 import numpy as np
-
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-from src.data_processor import DataProcessor
-
-
-class _ParameterizedDataProcessor(DataProcessor):
-    def __init__(self, seed=42, large_range=(0.005, 0.01), medium_range=(0.01, 0.02), small_range=(0.02, 0.03)):
-        super().__init__(seed=seed)
-        self.large_range = large_range
-        self.medium_range = medium_range
-        self.small_range = small_range
-
-    def _regenerate_coefficient(self, item):
-        tier = item["tier"]
-        direction = item["direction"]
-        if tier == "large":
-            base = self.rng.uniform(self.large_range[0], self.large_range[1])
-        elif tier == "medium":
-            base = self.rng.uniform(self.medium_range[0], self.medium_range[1])
-        else:
-            base = self.rng.uniform(self.small_range[0], self.small_range[1])
-        noise = self.rng.normal(0, 0.003)
-        if direction == "up":
-            coefficient = 1 + base + noise
-        else:
-            coefficient = 1 - base + noise
-        item["coefficient"] = coefficient
-        item["adjusted_price"] = round(item["price"] * coefficient, 2)
+from core import LiteCore
 
 
 class LiteDataProcessor:
@@ -248,18 +219,18 @@ class LiteDataProcessor:
 
         data = self.gui_data_to_processor_format(gui_rows)
 
-        processor = _ParameterizedDataProcessor(
+        core = LiteCore(
             seed=seed,
             large_range=large_range,
             medium_range=medium_range,
             small_range=small_range,
         )
 
-        data = processor.identify_locked_items(data)
-        data = processor.tier_grouping(data)
+        data = core.identify_locked_items(data)
+        data = core.tier_grouping(data)
         data = self._generate_coefficients_custom(data, large_range, medium_range, small_range)
-        data = processor.control_up_down_ratio(data, min_ratio=up_down_min, max_ratio=up_down_max)
-        data = processor.control_correlation(data)
+        data = core.control_up_down_ratio(data, min_ratio=up_down_min, max_ratio=up_down_max)
+        data = core.control_correlation(data)
 
         if total_price_min is not None or total_price_max is not None:
             data = self._calibrate_total_price_custom(
@@ -267,7 +238,7 @@ class LiteDataProcessor:
                 large_range, medium_range, small_range,
             )
 
-        quality = processor.advanced_quality_check(data)
+        quality = core.advanced_quality_check(data)
 
         result_rows = []
         original_total = 0

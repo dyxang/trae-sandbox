@@ -1,12 +1,7 @@
-import sys
-import os
-
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
 import gradio as gr
 import pandas as pd
 import numpy as np
-from Plite.lite_processor import LiteDataProcessor
+from lite_processor import LiteDataProcessor
 
 processor = LiteDataProcessor()
 
